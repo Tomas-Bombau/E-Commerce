@@ -1,18 +1,25 @@
 const express = require('express');
-const server = express();
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const index = require("./routes/indexRoutes")
+const apiIndex = require("./routes/indexRoutes")
+const viewsRouter = require("./routes/viewsRouter")
+const handlebars = require ("express-handlebars")
 
+const app = express();
 
-server.name = 'E-Commerce';
+app.name = 'E-Commerce';
 
-server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-server.use(bodyParser.json({ limit: '50mb' }));
-server.use(cookieParser());
-server.use(morgan('dev'));
-server.use((req, res, next) => {
+app.engine("handlebars", handlebars.engine())
+app.set("views", `${__dirname}/views`)
+app.set("view engine", "handlebars")
+
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(cookieParser());
+app.use(morgan('dev'));
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', "*"); 
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -20,13 +27,14 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use("/api", index)
+app.use("/", viewsRouter)
+app.use("/api", apiIndex)
 
-server.use((err, req, res, next) => { 
+app.use((err, req, res, next) => { 
   const status = err.status || 500;
   const message = err.message || err;
   console.error(err);
   res.status(status).send(message);
 });
 
-module.exports = server;
+module.exports = app;

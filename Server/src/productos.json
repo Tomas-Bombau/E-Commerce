@@ -1,1 +1,46 @@
-[]
+[
+	{
+		"id": 401,
+		"title": "Velas del sur argentino",
+		"description": "Velas patagonicas",
+		"code": "A1SD2",
+		"price": 10500,
+		"status": true,
+		"stock": 8,
+		"category": "Velas",
+		"thumbnails": [
+			"Foto_Velas_Patagonicas_1",
+			"Foto_Velas_Patagonicas_2"
+		]
+	},
+	{
+		"id": 571,
+		"title": "Velas del altiplano",
+		"description": "Velas con aroma a ayanchuco de la puna Jujeña",
+		"code": "A1SD2",
+		"price": 17500,
+		"status": true,
+		"stock": 8,
+		"category": "Velas",
+		"thumbnails": [
+			"Foto_Velas_Ayancucho_1",
+			"Foto_Velas_Ayancucho_2",
+			"Foto_Velas_Ayancucho_3"
+		]
+	},
+	{
+		"id": 928,
+		"title": "Velas del puerto",
+		"description": "Velas con el aroma a brisa del recuerdo",
+		"code": "A1SD2",
+		"price": 8900,
+		"status": true,
+		"stock": 120,
+		"category": "Velas",
+		"thumbnails": [
+			"Foto_Velas_BrisaDelRecuerdo_1",
+			"Foto_Velas_BrisaDelRecuerdo_2",
+			"Foto_Velas_BrisaDelRecuerdo_3"
+		]
+	}
+]

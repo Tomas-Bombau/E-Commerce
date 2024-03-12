@@ -1,0 +1,13 @@
+
+<section>
+    {{#each allProducts}}
+        <ul>
+            <li>Producto: {{this.title}}</li>
+            <li>Descripción: {{this.description}}</li>
+            <li>Precio: {{this.price}}</li>
+            <li>Stock: {{this.stock}}</li>
+            <li>Categoria: {{this.category}}</li>
+            <li>Imagen: {{this.thumbnails}}</li>
+        </ul>
+    {{/each}}
+</section>

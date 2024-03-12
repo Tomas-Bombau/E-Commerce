@@ -1,0 +1,34 @@
+{{!-- <div>
+    <form action="">
+        <label for="">Nombre producto: </label>
+        <input type="text" name="title">
+        <label for="">Descripcion: </label>
+        <input type="text" name="description">
+        <label for="">Código: </label>
+        <input type="text" name="code">
+        <label for="">Precio: </label>
+        <input type="text" name="price">
+        <label for="">Stock: </label>
+        <input type="text" name="stock">
+        <label for="">Categoría: </label>
+        <input type="text" name="category">
+        <label for="">Fotos: </label>
+        <input type="text" name="thumbnails">
+    </form>
+</div> --}}
+
+
+<section id="container">
+    {{#each allProducts}}
+    <div>
+        <ul>
+            <li>Imagen: {{this.thumbnails}}</li>
+            <li>Producto: {{this.title}}</li>
+            <li>Descripción: {{this.description}}</li>
+            <li>Precio: {{this.price}}</li>
+            <li>Stock: {{this.stock}}</li>
+            <li>Categoria: {{this.category}}</li>
+        </ul>
+    {{/each}}
+     </div>
+</section>

@@ -122,6 +122,8 @@ const createProduct = async (req, res) => {
     allProducts.push(newProduct);
     const productsToSave = JSON.stringify(allProducts, null, "\t");
     await fs.promises.writeFile(filePath, productsToSave);
+
+    
     res
       .status(201)
       .json({ status: "Product created successfully", newProduct: newProduct });
