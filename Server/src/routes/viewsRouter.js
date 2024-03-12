@@ -25,6 +25,9 @@ router.get("/realtimeproducts", async (_, res) => {
         res.render("realTimeProducts", {
             allProducts,
             useWS: true,
+            styles: [
+              "cards.css"
+            ],
             scripts: [
                 "realTimeProducts.js"
             ]
@@ -93,7 +96,8 @@ router.post("/realtimeproducts", async (req, res) => {
         await fs.promises.writeFile(filePath, productsToSave);
     
         req.app.get("ws").emit("newProduct", newProduct)
-        res.status(201).json({ status: "Product created successfully", newProduct: newProduct });
+        res.status(201).redirect(req.path);
+
     } catch (error) {
       res.status(500).json({message: error.message})
   }}

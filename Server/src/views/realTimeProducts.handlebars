@@ -1,5 +1,12 @@
-<div>
-    <form action="/realTimeProducts" id="productForm" method="post" enctype="application/x-www-form-urlencoded">
+<nav class="navBar">
+        <h1>Tienda de velas</h1>
+        <div>
+        <img src="https://static.vecteezy.com/system/resources/previews/018/825/343/original/candle-ligth-flat-illustration-free-png.png" alt="">
+        </div>
+</nav>
+
+<section class="formSection">
+<form action="/realTimeProducts" id="productForm" method="post" enctype="application/x-www-form-urlencoded">
     <div>
         <label for="">Nombre producto: </label>
         <input type="text" name="title">
@@ -28,24 +35,26 @@
         <label for="">Fotos: </label>
         <input type="text" name="thumbnails">
     </div>
-    <div>
-        <input type="submit" label="Agregar producto">
+    <div class="submit">
+        <input  type="submit" label="Agregar producto">
     </div>
-    </form>
-</div>
+</form>
+</section>
 
 
-<section id="container">
+
+
+<section class="cardContainer">
     {{#each allProducts}}
-    <div>
-        <ul>
-            <li>Imagen: {{this.thumbnails}}</li>
-            <li>Producto: {{this.title}}</li>
-            <li>Descripción: {{this.description}}</li>
-            <li>Precio: {{this.price}}</li>
-            <li>Stock: {{this.stock}}</li>
-            <li>Categoria: {{this.category}}</li>
-        </ul>
+    <div class="card">
+            <img src={{this.thumbnails}} alt=""></img>
+            <h3>Producto: {{this.title}}</h3>
+            <div class="description">
+                <p>Descripción: {{this.description}}</p>
+                <p>Precio: {{this.price}}</p>
+                <p>Stock: {{this.stock}}</p>
+                <p>Categoria: {{this.category}}</p>
+            </div>
      </div>
     {{/each}}
 </section>
