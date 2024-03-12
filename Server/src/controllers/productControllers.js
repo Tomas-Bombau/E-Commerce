@@ -17,7 +17,7 @@ const getAllProducts = async (req, res) => {
       res.json(limitedProducts);
     }
   } catch (error) {
-    res.send(error);
+    res.status(500).json({message: error.message})
   }
 };
 
@@ -42,7 +42,7 @@ const getProductById = async (req, res) => {
     }
     res.status(200).json(productFound);
   } catch (error) {
-    res.send(error);
+    res.status(500).json({message: error.message})
   }
 };
 
@@ -123,12 +123,11 @@ const createProduct = async (req, res) => {
     const productsToSave = JSON.stringify(allProducts, null, "\t");
     await fs.promises.writeFile(filePath, productsToSave);
 
-    
     res
       .status(201)
       .json({ status: "Product created successfully", newProduct: newProduct });
   } catch (error) {
-    res.send(error);
+    res.status(500).json({message: error.message})
   }
 };
 
@@ -185,7 +184,7 @@ const updateProduct = async (req, res) => {
     await fs.promises.writeFile(filePath, updatedProducts);
     res.status(201).json({ status: "Product updated successfully"})
   } catch (error) {
-   res.send(error)
+    res.status(500).json({message: error.message})
   }
 };
 

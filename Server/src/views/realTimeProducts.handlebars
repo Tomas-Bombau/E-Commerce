@@ -1,21 +1,38 @@
-{{!-- <div>
-    <form action="">
+<div>
+    <form action="/realTimeProducts" id="productForm" method="post" enctype="application/x-www-form-urlencoded">
+    <div>
         <label for="">Nombre producto: </label>
         <input type="text" name="title">
+    </div>
+    <div>
         <label for="">Descripcion: </label>
         <input type="text" name="description">
+    </div>
+    <div>
         <label for="">Código: </label>
         <input type="text" name="code">
+    </div>
+    <div>
         <label for="">Precio: </label>
-        <input type="text" name="price">
-        <label for="">Stock: </label>
-        <input type="text" name="stock">
+        <input type="number" name="price">
+    </div>
+    <div>
+         <label for="">Stock: </label>
+        <input type="number" name="stock">
+    </div>
+    <div>
         <label for="">Categoría: </label>
         <input type="text" name="category">
+    </div>
+    <div>
         <label for="">Fotos: </label>
         <input type="text" name="thumbnails">
+    </div>
+    <div>
+        <input type="submit" label="Agregar producto">
+    </div>
     </form>
-</div> --}}
+</div>
 
 
 <section id="container">
@@ -29,6 +46,6 @@
             <li>Stock: {{this.stock}}</li>
             <li>Categoria: {{this.category}}</li>
         </ul>
-    {{/each}}
      </div>
+    {{/each}}
 </section>

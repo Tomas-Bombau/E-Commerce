@@ -8,13 +8,16 @@ const handlebars = require ("express-handlebars")
 
 const app = express();
 
+
 app.name = 'E-Commerce';
 
+//Configuracion handlebars
 app.engine("handlebars", handlebars.engine())
 app.set("views", `${__dirname}/views`)
 app.set("view engine", "handlebars")
 
 app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(cookieParser());
